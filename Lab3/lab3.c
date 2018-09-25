@@ -11,6 +11,7 @@ long long fact(int numb){
 
 int main(){
     double y, sum, sum2, el;    
+    int n = 0;
     
     for(double x = 0.1;x <= 1;x += 0.1){
         sum = 0;
@@ -22,7 +23,7 @@ int main(){
             el = pow((-1),n) * pow(x,(2*n + 1)) / fact(2 * n + 1);
             sum += el;
         }
-        int n = 0;
+        n = 0;
         
         do{
             el = pow((-1),n) * pow(x,(2*n + 1)) / fact(2 * n + 1);
