@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int fact(int numb){
-    int i = 1;
+long long fact(int numb){
+    long long i = 1;
     for(int j = 1;j <= numb;j++){
         i *= j;
     }
@@ -10,10 +10,11 @@ int fact(int numb){
 }
 
 int main(){
-    double y;
+    double y, sum, sum2, el;    
     
     for(double x = 0.1;x <= 1;x += 0.1){
-        double sum = 0,sum2 = 0;
+        sum = 0;
+        sum2 = 0;
         y = sin(x);
         
         for(int n = 0; n < 10;n++){
@@ -22,7 +23,7 @@ int main(){
             sum += el;
         }
         int n = 0;
-        double el;
+        
         do{
             el = pow((-1),n) * pow(x,(2*n + 1)) / fact(2 * n + 1);
             sum2 += el;
