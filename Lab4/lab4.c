@@ -7,11 +7,7 @@ void printarr(int arr[],int count){
     }
     
 }
-void arrnull(int arr[], int count){
-    for(int i = 0; i < count; i++){
-        arr[i] = 0;
-    }
-}
+
 int main(){
     int count,n,arr[100],arr2[100],b,i; 
     do{
@@ -35,22 +31,17 @@ int main(){
         arr2[i - n] = arr[i];          
     }
     count -= n;
-    
-    arrnull(arr, 100);
+       
     b = 0;
     for(i = 0; i < count + 1; i++){
+        arr[i + b] = arr2[i];
         if(b == 0){
             if(arr2[i] % 2 == 0 && i != 0){
-                arr[i] = arr2[i - 1] + 2;
+                arr[i + 1] = arr2[i - 1] + 2;
                 b = 1;
             }
-            else{
-                arr[i] = arr2[i];
-            }
         }
-        else{
-            arr[i] = arr2[i - 1];
-        }
+        
     }
     printf("Elements of changed array: ");
     printarr(arr,count + 1);
