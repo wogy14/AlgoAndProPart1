@@ -12,18 +12,18 @@ int main() {
 	char text[DEFAULT_LEN];
 	int i = 0,count = 0;
 	printf("Put the string: ");
-	fgets(text, DEFAULT_LEN, stdin);	
+	fgets(text, DEFAULT_LEN, stdin);
 	while (text[i] != '\0') {
-		if (text[i] == ' ' || text[i] == '.' || text[i] == '\n') text[i] = '\0';				
+		if (text[i] == ' ' || text[i] == '.' || text[i] == '\n') text[i] = '\0';
 		i++;
 	}
 	for (i = 0; i < DEFAULT_LEN;i++) {
 		int checker = 1,start = i;
-		while (text[i] != '\0') {			
+		while (text[i] != '\0') {
 			if (is_loud(text[i]) || !isalpha(text[i])) checker = 0;
-			i++;		
+			i++;
 		}
-		if (checker && isalpha(text[start])) {			
+		if (checker && isalpha(text[start])) {
 			printf("%i. ",++count);
 			while (text[start] != '\0') {
 				printf("%c",text[start]);
