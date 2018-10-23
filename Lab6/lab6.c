@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+
 #define DEFAULT_LEN 255
 
 int is_loud(char *c) {
-	int arr[6] = { 'a','e','i','o','u','y'},i,j = 0,s;
-	while (c[j] != '\0') {
+	char arr[] = { 'a','e','i','o','u','y'};
+	int i,j = 0,s;
+	while (c[j]) {
 		s = tolower(c[j]);		
-		for (i = 0; i < 6; i++) if (s == arr[i]) return 1;
+		for (i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
+		    if (s == arr[i])
+		       return 1;
 		j++;
 	}	
 	return 0;
@@ -24,9 +28,11 @@ int main() {
 	}
 	char *p = text;	
 	for (i = 0; i < str_len; i += c+1,p += c+1) {				
-		if (p[i] == '\0') continue;		
-		if (!is_loud(p)) printf("%s\n", p);
-		c = strlen(p);		
+		c = strlen(p);
+		if (p[i] == '\0')
+		   continue;		
+		if (!is_loud(p))
+		   printf("%s\n", p);	
 	}	
 	return 0;
 }
